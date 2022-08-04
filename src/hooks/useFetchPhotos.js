@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { getPhotos } from "../utils/getPhotos";
 
-export const useStatePhotos = (topic, numberOfPage) => {
+export const useFetchPhotos = (topic, numberOfPage) => {
   const [state, setState] = useState({ photos: [], loading: true });
 
   useEffect(() => {
