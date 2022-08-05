@@ -1,25 +1,21 @@
-import { useStatePhotos } from "../hooks/useFetchPhotos";
+import "../css/StreamingGridItem.css";
 
 const StreamingGridItem = ({ url, title }) => {
-  const { photos: data, loading } = useStatePhotos("nature", 1);
-  console.log(data);
-
   return (
     <>
       <div className="container">
         <div className="row">
-          <div className="col-sm">
-            <img src={data[0].urlPhoto} alt={data[0].title}></img>
+          <div className="col-sm centerContent">
+            <img className="maxWidth maxHeight" src={url} alt={title}></img>
           </div>
-          <div className="col-sm">
-            <p>{data[0].title}</p>
+          <div className="col-sm centerContent">
+            <p>{title}</p>
           </div>
-          <div className="col-sm">
+          <div className="col-sm centerContent">
             <button>Test2</button>
           </div>
         </div>
       </div>
-      <div></div>
     </>
   );
 };

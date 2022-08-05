@@ -1,0 +1,14 @@
+.maxWidth{
+    max-width: 100%; 
+}
+
+.maxHeight{
+    max-height: 80%;
+}
+
+.centerContent{
+    align-items: center;
+    border: 1px solid;
+    display: flex;
+    justify-content: center;
+}
