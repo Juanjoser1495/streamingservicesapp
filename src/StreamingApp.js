@@ -5,7 +5,7 @@ import StreamingSearchCategory from "./components/StremingSearchCategory";
 import { useState } from "react";
 
 const StreamingApp = () => {
-  const [category, setCategory] = useState("action");
+  const [category, setCategory] = useState("");
 
   return (
     <>
