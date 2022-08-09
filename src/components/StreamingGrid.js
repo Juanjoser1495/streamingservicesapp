@@ -3,14 +3,15 @@ import { useFetchRankingTop10 } from "../hooks/useFetchRankingTop10";
 import StreamingError from "./StreamingError";
 
 const StreamingGrid = ({ category }) => {
-  const { ranking, message } = useFetchRankingTop10(category);
+  const { ranking, message, httpStatus } = useFetchRankingTop10(category);
 
-  const isRankingAvailable = message == "Data successufull retrieved" ? true : false;
+  const title = category == "" ? "All genre" : category;
+  const isRestSucessfull = httpStatus === 200 && ranking != undefined ? true : false;
 
   return (
     <>
-      <h2>{category}</h2>
-      {isRankingAvailable ? (
+      <h2>{title}</h2>
+      {isRestSucessfull ? (
         ranking.map((data) => (
           <StreamingGridItem
             key={data.id}

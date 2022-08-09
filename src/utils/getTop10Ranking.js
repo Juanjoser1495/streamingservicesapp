@@ -5,7 +5,11 @@ export const getTop10Ranking = async (category) => {
 
   const { message, data } = await responseExternalService.json();
 
-  const response = { status: message, ranking: data };
+  const response = {
+    status: message,
+    ranking: data,
+    httpStatus: responseExternalService.status,
+  };
 
   return response;
 };
