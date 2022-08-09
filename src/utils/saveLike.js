@@ -9,5 +9,5 @@ export const saveLike = async (title) => {
     headers: new Headers({ "Content-Type": "application/json" }),
   });
 
-  console.log(response.status);
+  return response.status;
 };
