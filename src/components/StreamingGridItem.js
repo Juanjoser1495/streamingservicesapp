@@ -1,10 +1,12 @@
 import "../css/StreamingGridItem.css";
 import { saveLike } from "../utils/saveLike";
 
-const StreamingGridItem = ({ url, title }) => {
+const StreamingGridItem = ({ url, title, setisNeededToRefresh }) => {
   const handleOnClick = () => {
     saveLike(title);
-    window.location.reload(false);
+    setTimeout(() => {
+      setisNeededToRefresh(Math.random());
+    }, 100);
   };
   return (
     <>

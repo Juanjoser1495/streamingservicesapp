@@ -1,12 +1,17 @@
 import StreamingGridItem from "./StreamingGridItem";
 import { useFetchRankingTop10 } from "../hooks/useFetchRankingTop10";
+import { useState } from "react";
 import StreamingError from "./StreamingError";
 
 const StreamingGrid = ({ category }) => {
-  const { ranking, message, httpStatus } = useFetchRankingTop10(category);
+  const [isNeededToRefresh, setisNeededToRefresh] = useState(0);
+  const { ranking, message, httpStatus } = useFetchRankingTop10(
+    category,
+    isNeededToRefresh
+  );
 
-  const title = category == "" ? "All genre" : category;
-  const isRestSucessfull = httpStatus === 200 && ranking != undefined ? true : false;
+  const title = category === "" ? "All genre" : category;
+  const isRestSucessfull = httpStatus === 200 && ranking !== undefined ? true : false;
 
   return (
     <>
@@ -17,6 +22,7 @@ const StreamingGrid = ({ category }) => {
             key={data.id}
             url={data.imageUrl}
             title={data.movieName}
+            setisNeededToRefresh={setisNeededToRefresh}
           ></StreamingGridItem>
         ))
       ) : (
