@@ -17,6 +17,7 @@ export const useFetchRankingTop10 = (category, isNeededToRefresh) => {
     getTop10Ranking(category).then(({ ranking, status, httpStatus }) => {
       setrankingTop10({ ranking: ranking, message: status, httpStatus: httpStatus });
     });
+    // eslint-disable-next-line
   }, [isNeededToRefresh]);
 
   return rankingTop10;
