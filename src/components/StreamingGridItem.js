@@ -1,6 +1,13 @@
 import "../css/StreamingGridItem.css";
+import { saveLike } from "../utils/saveLike";
 
-const StreamingGridItem = ({ url, title }) => {
+const StreamingGridItem = ({ url, title, setisNeededToRefresh }) => {
+  const handleOnClick = () => {
+    saveLike(title);
+    setTimeout(() => {
+      setisNeededToRefresh(Math.random());
+    }, 100);
+  };
   return (
     <>
       <div className="container">
@@ -12,7 +19,7 @@ const StreamingGridItem = ({ url, title }) => {
             <p>{title}</p>
           </div>
           <div className="col-sm centerContent">
-            <button>Test2</button>
+            <button onClick={handleOnClick}>Like</button>
           </div>
         </div>
       </div>
