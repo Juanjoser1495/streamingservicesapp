@@ -1,13 +1,13 @@
-export const getTop10Ranking = async (category) => {
-  const url = `http://localhost:8080/ranking/${category}`;
+export const getGenres = async () => {
+  const url = "http://localhost:8080/genres";
 
   const responseExternalService = await fetch(url);
 
   const { message, data } = await responseExternalService.json();
 
   const response = {
-    status: message,
-    ranking: data,
+    message: message,
+    genres: data,
     httpStatus: responseExternalService.status,
   };
 
