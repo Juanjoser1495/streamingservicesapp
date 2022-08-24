@@ -1,7 +1,8 @@
-const StreamingSearchCategoryDropdown = ({ value }) => {
+const StreamingSearchCategoryDropdown = ({ textValue }) => {
+  const value = textValue === "All genre" ? " " : textValue;
   return (
     <>
-      <option value={value}>{value}</option>
+      <option value={value}>{textValue}</option>
     </>
   );
 };

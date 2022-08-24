@@ -1,46 +1,33 @@
-import { useEffect, useState } from "react";
 import StreamingSearchCategoryDropdown from "./StreamingSearchCategoryDropdown";
-import { getGenres } from "../utils/getGenres";
+import { useFetchGenres } from "../hooks/useFetchGenres";
+import { useState } from "react";
 
 const StreamingSearchCategory = ({ setCategory }) => {
   const [inputValue, setInputValue] = useState("");
-  const [genreToRender, setGenreToRender] = useState({ genres: [] });
+  const { genres } = useFetchGenres();
 
-  useEffect(() => {
-    getGenres().then(({ genres }) => setGenreToRender({ genres }));
-  });
-
-  const handleChange = (e) => {
+  const handleOnChange = (e) => {
     setInputValue(e.target.value);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (inputValue.trim().length > 2) {
-      setCategory(inputValue);
-      setInputValue("");
-    }
+    setCategory(inputValue);
   };
 
   return (
     <>
       <form onSubmit={handleSubmit}>
         <label htmlFor="category">Category: </label>
-        <input
-          type="text"
-          id="category"
-          name="category"
-          value={inputValue}
-          onChange={(e) => handleChange(e)}
-        ></input>
-        <select name="category2" id="category2">
-          {genreToRender.genres?.map((genre) => (
+        <select onChange={handleOnChange} name="category2" id="category2">
+          {genres?.map((genre) => (
             <StreamingSearchCategoryDropdown
-              value={genre.genre}
+              textValue={genre.genre}
               key={genre.idGenre}
             ></StreamingSearchCategoryDropdown>
           ))}
         </select>
+        <button type="submit">Get genre</button>
       </form>
     </>
   );
