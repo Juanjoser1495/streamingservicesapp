@@ -17,7 +17,7 @@ const StreamingGrid = ({ category }) => {
     <>
       <h2>{title}</h2>
       {isRestSucessfull ? (
-        ranking.map((data) => (
+        ranking?.map((data) => (
           <StreamingGridItem
             key={data.id}
             url={data.imageUrl}
