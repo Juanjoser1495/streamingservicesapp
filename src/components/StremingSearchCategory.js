@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "../css/StreamingSearchCategory.css";
 
 const StreamingSearchCategory = ({ setCategory }) => {
   const [inputValue, setInputValue] = useState("");
@@ -16,18 +17,19 @@ const StreamingSearchCategory = ({ setCategory }) => {
   };
 
   return (
-    <>
-      <form onSubmit={handleSubmit}>
+    <div className="containter backgroundColorSearch">
+      <form className="marginLeft16" onSubmit={handleSubmit}>
         <label htmlFor="category">Category: </label>
         <input
           type="text"
           id="category"
           name="category"
+          className="marginTop8 marginLeft16"
           value={inputValue}
           onChange={(e) => handleChange(e)}
         ></input>
       </form>
-    </>
+    </div>
   );
 };
 

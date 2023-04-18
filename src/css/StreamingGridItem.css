@@ -1,9 +1,9 @@
-.maxWidth{
-    max-width: 100%; 
+.width{
+    width: 250px; 
 }
 
-.maxHeight{
-    max-height: 80%;
+.height{
+    height: 200px;
 }
 
 .centerContent{
@@ -11,4 +11,12 @@
     border: 1px solid;
     display: flex;
     justify-content: center;
+}
+
+.paddingTop{
+    padding-top: 8px;
+}
+
+.paddingBottom{
+    padding-bottom: 8px;
 }

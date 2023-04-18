@@ -1,5 +1,5 @@
 export const getTop10Ranking = async (category) => {
-  const url = `http://localhost:8080/genre/${category}`;
+  const url = `http://localhost:8080/ranking/${category}`;
 
   const responseExternalService = await fetch(url);
 
