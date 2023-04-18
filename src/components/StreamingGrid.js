@@ -25,11 +25,8 @@ const StreamingGrid = ({ category }) => {
           {isRestSucessfull ? (
             ranking.map((data) => (
               <StreamingGridItem
-                key={data.id}
-                url={data.imageUrl}
-                title={data.movieName}
+                data={data}
                 setisNeededToRefresh={setisNeededToRefresh}
-                likes={data.likes}
               ></StreamingGridItem>
             ))
           ) : (
