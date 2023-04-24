@@ -1,5 +1,6 @@
 import "../css/StreamingGridItem.css";
 import { saveLike } from "../utils/saveLike";
+import StreamingGridItemImageDescription from "./StreamingGridItemImage&Descritpion";
 
 const StreamingGridItem = ({ data, setisNeededToRefresh }) => {
   const handleOnClick = () => {
@@ -13,17 +14,10 @@ const StreamingGridItem = ({ data, setisNeededToRefresh }) => {
       <tr>
         <th scope="row">{data.position}</th>
         <td>
-          <p>{data.movieName}</p>
+          <StreamingGridItemImageDescription data={data}></StreamingGridItemImageDescription>
         </td>
         <td>
           <p>{data.likes}</p>
-        </td>
-        <td>
-          <img
-            className="width height paddingTop paddingBottom"
-            src={data.imageUrl}
-            alt={data.movieName}
-          ></img>
         </td>
         <td>
           <button onClick={handleOnClick}>Like</button>
