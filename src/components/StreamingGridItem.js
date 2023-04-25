@@ -1,4 +1,3 @@
-import "../css/StreamingGridItem.css";
 import { saveLike } from "../utils/saveLike";
 import StreamingGridItemImageDescription from "./StreamingGridItemImage&Descritpion";
 
