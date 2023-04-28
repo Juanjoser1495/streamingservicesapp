@@ -17,8 +17,7 @@ const StreamingGrid = ({ category }) => {
             <th scope="col">#</th>
             <th scope="col">Movie/Serie</th>
             <th scope="col"># Likes</th>
-            <th scope="col">Poster</th>
-            <th scope="col"></th>
+            <th scope="col">Action</th>
           </tr>
         </thead>
         <tbody>
