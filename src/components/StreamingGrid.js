@@ -24,6 +24,7 @@ const StreamingGrid = ({ category }) => {
           {isRestSucessfull ? (
             ranking.map((data) => (
               <StreamingGridItem
+                key={data.id}
                 data={data}
                 setisNeededToRefresh={setisNeededToRefresh}
               ></StreamingGridItem>

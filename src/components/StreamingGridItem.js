@@ -31,7 +31,7 @@ const StreamingGridItem = ({ data, setisNeededToRefresh }) => {
           <p>{data.likes}</p>
         </td>
         <td className="centerRow">
-          <button className="mb-1" nClick={handleOnClickLike}>
+          <button className="mb-1" onClick={handleOnClickLike}>
             Like
           </button>
           <button onClick={handleOnClickDislike}>Dislike</button>

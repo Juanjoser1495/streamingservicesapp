@@ -1,13 +1,15 @@
 import { getGenreRanking } from "../utils/getGenreRanking";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import StreamingGenreRankItem from "./StreamingGenreRankItem";
 
 const StreamingGenresRank = () => {
-  getGenreRanking().then(({ ranking, status, httpStatus }) => {
-    setRankingGenres(ranking);
-  });
+  useEffect(() => {
+    getGenreRanking().then(({ ranking }) => {
+      setRankingGenres(ranking);
+    });
+  }, []);
 
   const [rankingGenres, setRankingGenres] = useState({ ranking: [] });
-  //console.log(ranking);
 
   if (rankingGenres === undefined) {
     return <>Still loading...</>;
@@ -15,11 +17,19 @@ const StreamingGenresRank = () => {
 
   return (
     <>
-      <div className="d-flex align-items-center justify-content-center vh-100">
-        <p className="lead">{JSON.stringify(rankingGenres)}</p>
-
-        <p className="lead">Lo que sea</p>
-      </div>
+      <table className="table">
+        <thead>
+          <tr>
+            <th scope="col">Genre</th>
+            <th scope="col"># Of Likes</th>
+          </tr>
+        </thead>
+        <tbody>
+          {Object.keys(rankingGenres).map((e) => (
+            <StreamingGenreRankItem nameGenre={e} numberOfLikes={rankingGenres[e]} />
+          ))}
+        </tbody>
+      </table>
     </>
   );
 };
