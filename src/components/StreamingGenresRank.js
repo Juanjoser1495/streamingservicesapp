@@ -26,7 +26,11 @@ const StreamingGenresRank = () => {
         </thead>
         <tbody>
           {Object.keys(rankingGenres).map((e) => (
-            <StreamingGenreRankItem nameGenre={e} numberOfLikes={rankingGenres[e]} />
+            <StreamingGenreRankItem
+              key={Math.random()}
+              nameGenre={e}
+              numberOfLikes={rankingGenres[e]}
+            />
           ))}
         </tbody>
       </table>
