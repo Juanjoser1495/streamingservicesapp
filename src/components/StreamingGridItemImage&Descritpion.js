@@ -12,6 +12,8 @@ const StreamingGridItemImageDescription = ({ data }) => {
           <p className="mb-1">{data.movieName}</p>
           <h5>Descritpion:</h5>
           <p>{data.description}</p>
+          <h5>Genre:</h5>
+          <p>{data.genre}</p>
         </div>
       </div>
     </>
